@@ -12,5 +12,5 @@ Gem::Specification.new do |gem|
   gem.files         = Dir.glob("lib/**/*")
   gem.require_paths = ["lib"]
   gem.license       = 'MIT'
-  gem.add_runtime_dependency 'sass', '>= 3.2'
+  gem.add_runtime_dependency 'sass', '~> 3.2'
 end

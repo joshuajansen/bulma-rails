@@ -16,6 +16,7 @@
 .button
   +control
   +unselectable
+  justify-content: center
   padding: 3px 10px
   text-align: center
   white-space: nowrap
@@ -26,10 +27,11 @@
     font-size: $size-small
     line-height: 1
     margin-top: 5px
-  .fa
-    line-height: 24px
-    margin: 0 -2px
-    width: 24px
+  .icon
+    &:first-child
+      margin-right: 4px
+    &:last-child
+      margin-left: 4px
   &:hover
     color: $control-hover
   &:active
@@ -69,6 +71,14 @@
             background: rgba(black, 0.05)
       &.is-loading:after
         border-color: transparent transparent $color-invert $color-invert !important
+  &.is-link
+    border-color: transparent
+    color: $text
+    text-decoration: underline
+    &:hover,
+    &:focus
+      background: $border
+      color: $text-strong
   &.is-small
     +button-small
   &.is-medium
@@ -91,12 +101,3 @@
   &[disabled]
     opacity: 0.5
     pointer-events: none
-  +tablet
-    small
-      color: $text
-      left: 0
-      margin-top: 10px
-      position: absolute
-      top: 100%
-      width: 100%
-

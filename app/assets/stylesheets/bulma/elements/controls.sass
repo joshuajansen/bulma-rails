@@ -1,11 +1,12 @@
 =control
   -moz-appearance: none
   -webkit-appearance: none
+  align-items: center
   background: $control-background
   border: 1px solid $control-border
   border-radius: $radius
   color: $control
-  display: inline-block
+  display: inline-flex
   font-size: $size-normal
   height: 32px
   line-height: 24px
@@ -31,10 +32,8 @@
   +control
   @each $name, $pair in $colors
     $color: nth($pair, 1)
-    $color-invert: nth($pair, 2)
     &.is-#{$name}
       border-color: $color
-      color: $color
 
 =control-small
   border-radius: 2px
@@ -172,6 +171,10 @@
       border-color: $control-hover-border
     &::ms-expand
       display: none
+  &.is-fullwidth
+    width: 100%
+    select
+      width: 100%
   &:after
     +arrow($link)
     margin-top: -6px
@@ -184,8 +187,29 @@
 .label
   color: $text-strong
   display: block
+  font-weight: bold
   &:not(:last-child)
     margin-bottom: 5px
+
+.help
+  display: block
+  font-size: $size-small
+  margin-top: 5px
+  @each $name, $pair in $colors
+    $color: nth($pair, 1)
+    &.is-#{$name}
+      color: $color
+
+// Containers
+
+.control-label
+  +mobile
+    margin-bottom: 5px
+  +tablet
+    flex: 1
+    margin-right: 20px
+    padding-top: 7px
+    text-align: right
 
 .control
   position: relative
@@ -200,27 +224,26 @@
     margin-bottom: 10px
   &.has-icon
     & > .fa
-      +fa(14px, 20px)
+      +fa(14px, 16px)
       color: $text-light
-      left: 6px
       pointer-events: none
       position: absolute
-      top: 6px
+      top: 8px
       z-index: 4
     .input
-      padding-left: 32px
       &:focus + .fa
-        color: $control-active
-  &.is-horizontal
-    display: flex
-    & > .button,
-    & > .input,
-    & > .select
-      &:not(:last-child)
-        margin-right: 10px
-    & > .input
-      flex: 1
-  &.is-grouped
+        color: $text-strong
+    &:not(.has-icon-right)
+      & > .fa
+        left: 8px
+      .input
+        padding-left: 32px
+  &.has-icon-right
+    & > .fa
+      right: 8px
+    .input
+      padding-right: 32px
+  &.has-addons
     display: flex
     .input,
     .button,
@@ -240,3 +263,18 @@
         border-radius: 0 $radius $radius 0
     &.is-centered
       justify-content: center
+  &.is-grouped
+    display: flex
+    & > .button,
+    & > .input,
+    & > .select
+      &:not(:last-child)
+        margin-right: 10px
+    & > .input
+      flex: 1
+  &.is-horizontal
+    +tablet
+      display: flex
+      & > .control
+        display: flex
+        flex: 5

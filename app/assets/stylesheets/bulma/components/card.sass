@@ -46,12 +46,14 @@
 .card
   background: white
   box-shadow: 0 2px 3px rgba(black, 0.1), 0 0 0 1px rgba(black, 0.1)
+  color: $text
   max-width: 100%
   position: relative
   width: 300px
   .media:not(:last-child)
     margin-bottom: 10px
-  &.is-rounded
-    border-radius: 5px
+  // Modifiers
   &.is-fullwidth
     width: 100%
+  &.is-rounded
+    border-radius: 5px

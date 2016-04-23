@@ -22,7 +22,7 @@ To import all assets in your Rails project, add the following line to your appli
 ```
 
 For information about customizing Bulma,
-see: [http://bulma.io/documentation/overview/](http://bulma.io/documentation/overview/)
+see: [http://bulma.io/documentation/overview/start/](http://bulma.io/documentation/overview/start/)
 
 ## Contributing
 

@@ -1,7 +1,9 @@
+$nav-height: 50px !default
+
 // Components
 
 .nav-toggle
-  @extend .hamburger
+  +hamburger($nav-height)
   // Responsiveness
   +tablet
     display: none
@@ -9,10 +11,13 @@
 .nav-item
   align-items: center
   display: flex
+  flex-grow: 0
+  flex-shrink: 0
   justify-content: center
   padding: 10px
   a
     flex-grow: 1
+    flex-shrink: 0
   img
     max-height: 24px
   .button + .button
@@ -28,7 +33,7 @@
 
 .nav-item a,
 a.nav-item
-  color: $text
+  color: $text-light
   &:hover
     color: $link-hover
   // Modifiers
@@ -72,6 +77,7 @@ a.nav-item
   display: flex
   flex-basis: 0
   flex-grow: 1
+  flex-shrink: 0
   justify-content: flex-start
   overflow: hidden
   overflow-x: auto
@@ -91,6 +97,7 @@ a.nav-item
     display: flex
     flex-basis: 0
     flex-grow: 1
+    flex-shrink: 0
     justify-content: flex-end
 
 // Main container

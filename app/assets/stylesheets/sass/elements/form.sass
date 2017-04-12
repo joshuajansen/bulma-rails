@@ -32,8 +32,7 @@ $input-radius:              $radius !default
   &:active,
   &.is-active
     border-color: $input-focus-border
-  &[disabled],
-  &.is-disabled
+  &[disabled]
     background-color: $input-disabled-background
     border-color: $input-disabled-border
     box-shadow: none
@@ -71,7 +70,6 @@ $input-radius:              $radius !default
 
 .textarea
   display: block
-  line-height: 1.25
   max-height: 600px
   max-width: 100%
   min-height: 120px
@@ -86,6 +84,7 @@ $input-radius:              $radius !default
   display: inline-flex
   flex-wrap: wrap
   justify-content: flex-start
+  line-height: 1.5
   position: relative
   vertical-align: top
   input
@@ -93,11 +92,9 @@ $input-radius:              $radius !default
     margin-right: 0.5em
   &:hover
     color: $input-hover
-  &.is-disabled
+  &[disabled]
     color: $input-disabled
-    pointer-events: none
-    input
-      pointer-events: none
+    cursor: not-allowed
 
 .radio
   & + .radio
@@ -123,12 +120,17 @@ $input-radius:              $radius !default
     padding-right: 2.5em
     &:hover
       border-color: $input-hover-border
-    &::ms-expand
+    &::-ms-expand
       display: none
   // States
   &:hover
     &:after
       border-color: $input-hover
+  // Colors
+  @each $name, $pair in $colors
+    $color: nth($pair, 1)
+    &.is-#{$name} select
+      border-color: $color
   // Sizes
   &.is-small
     +control-small
@@ -189,11 +191,16 @@ $input-radius:              $radius !default
       .input,
       .select select
         border-radius: 0
-        &:hover
+        &:hover,
+        &.is-hovered
           z-index: 2
         &:focus,
-        &:active
+        &.is-focused,
+        &:active,
+        &.is-active
           z-index: 3
+          &:hover
+            z-index: 4
       &.is-expanded
         flex-grow: 1
         flex-shrink: 0
@@ -226,6 +233,8 @@ $input-radius:              $radius !default
       display: flex
 
 .field-label
+  .label
+    font-size: inherit
   +mobile
     margin-bottom: 0.5rem
   +tablet
@@ -233,8 +242,18 @@ $input-radius:              $radius !default
     flex-grow: 1
     flex-shrink: 0
     margin-right: 1.5rem
-    padding-top: 0.375em
     text-align: right
+    &.is-small
+      font-size: $size-small
+      padding-top: 0.375em
+    &.is-normal
+      padding-top: 0.375em
+    &.is-medium
+      font-size: $size-medium
+      padding-top: 0.375em
+    &.is-large
+      font-size: $size-large
+      padding-top: 0.375em
 
 .field-body
   +tablet
@@ -280,33 +299,13 @@ $input-radius:              $radius !default
     &:not(.has-icon-right)
       .icon
         left: 0
-        // transform: translateX(-50%) translateY(-50%)
       .input
         padding-left: 2.25em
-        // &.is-small
-        //   & + .icon
-        //     left: ($size-small * 2.5) / 2
-        // &.is-medium
-        //   & + .icon
-        //     left: ($size-medium * 2.5) / 2
-        // &.is-large
-        //   & + .icon
-        //     left: ($size-large * 2.5) / 2
     &.has-icon-right
       .icon
         right: 0
-        // transform: translateX(50%) translateY(-50%)
       .input
         padding-right: 2.25em
-        // &.is-small
-        //   & + .icon
-        //     right: ($size-small * 2.5) / 2
-        // &.is-medium
-        //   & + .icon
-        //     right: ($size-medium * 2.5) / 2
-        // &.is-large
-        //   & + .icon
-        //     right: ($size-large * 2.5) / 2
   &.is-loading
     &:after
       +loader

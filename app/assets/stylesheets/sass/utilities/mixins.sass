@@ -20,12 +20,14 @@
     content: " "
     display: table
 
-=center($size)
-  left: 50%
-  margin-left: -($size / 2)
-  margin-top: -($size / 2)
+=center($width, $height: 0)
   position: absolute
-  top: 50%
+  @if $height != 0
+    left: calc(50% - (#{$width} / 2))
+    top: calc(50% - (#{$height} / 2))
+  @else
+    left: calc(50% - (#{$width} / 2))
+    top: calc(50% - (#{$width} / 2))
 
 =delete
   +unselectable
@@ -123,12 +125,6 @@
         transform: rotate(-45deg)
         transform-origin: left bottom
 
-@keyframes spinAround
-  from
-    transform: rotate(0deg)
-  to
-    transform: rotate(359deg)
-
 =loader
   animation: spinAround 500ms infinite linear
   border: 2px solid $border
@@ -179,7 +175,7 @@
     @content
 
 =tablet
-  @media screen and (min-width: $tablet)
+  @media screen and (min-width: $tablet), print
     @content
 
 =tablet-only

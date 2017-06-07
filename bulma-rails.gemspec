@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |gem|
   gem.name          = 'bulma-rails'
-  gem.version       = '0.4.1.pre'
+  gem.version       = '0.4.2'
   gem.date          = Date.today
   gem.authors       = ["Joshua Jansen"]
   gem.email         = ["joshuajansen88@gmail.com"]

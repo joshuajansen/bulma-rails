@@ -37,6 +37,49 @@ $navbar-divider-background-color: $border !default
   background-color: $navbar-background-color
   min-height: $navbar-height
   position: relative
+  @each $name, $pair in $colors
+    $color: nth($pair, 1)
+    $color-invert: nth($pair, 2)
+    &.is-#{$name}
+      background-color: $color
+      color: $color-invert
+      .navbar-brand
+        & > .navbar-item,
+        .navbar-link
+          color: $color-invert
+        & > a.navbar-item,
+        .navbar-link
+          &:hover,
+          &.is-active
+            background-color: darken($color, 5%)
+            color: $color-invert
+        .navbar-link
+          &::after
+            border-color: $color-invert
+      +desktop
+        .navbar-start,
+        .navbar-end
+          & > .navbar-item,
+          .navbar-link
+            color: $color-invert
+          & > a.navbar-item,
+          .navbar-link
+            &:hover,
+            &.is-active
+              background-color: darken($color, 5%)
+              color: $color-invert
+          .navbar-link
+            &::after
+              border-color: $color-invert
+        .navbar-item.has-dropdown:hover .navbar-link,
+        .navbar-item.has-dropdown.is-active .navbar-link
+          background-color: darken($color, 5%)
+          color: $color-invert
+        .navbar-dropdown
+          a.navbar-item
+            &.is-active
+              background-color: $color
+              color: $color-invert
   & > .container
     align-items: stretch
     display: flex
@@ -45,13 +88,16 @@ $navbar-divider-background-color: $border !default
   &.has-shadow
     box-shadow: 0 2px 3px rgba($black, 0.1)
 
-.navbar-brand
-  +overflow-touch
+.navbar-brand,
+.navbar-tabs
   align-items: stretch
   display: flex
   flex-shrink: 0
-  max-width: 100vw
   min-height: $navbar-height
+
+.navbar-tabs
+  +overflow-touch
+  max-width: 100vw
   overflow-x: auto
   overflow-y: hidden
 
@@ -124,11 +170,13 @@ a.navbar-item,
 +touch
   .navbar > .container
     display: block
-  .navbar-brand
+  .navbar-brand,
+  .navbar-tabs
     .navbar-item
       align-items: center
       display: flex
   .navbar-menu
+    background-color: $white
     box-shadow: 0 8px 16px rgba($black, 0.1)
     padding: 0.5rem 0
     &.is-active
@@ -235,8 +283,10 @@ a.navbar-item,
   .navbar-divider
     display: block
   .container > .navbar
-    margin-left: -1rem
-    margin-right: -1rem
+    .navbar-brand
+      margin-left: -1rem
+    .navbar-menu
+      margin-right: -1rem
   // Hover/Active states
   a.navbar-item,
   .navbar-link

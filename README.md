@@ -22,7 +22,8 @@ To import all assets in your Rails project, add the following line to your appli
 ```
 
 For information about customizing Bulma,
-see: [http://bulma.io/documentation/overview/start/](http://bulma.io/documentation/overview/start/)
+see: [Customizing with Sass](http://bulma.io/documentation/overview/customize/). As you don't need to download any files, jump to **2 Set your variables**. Beware that the example shown there uses SASS instead of SCSS syntax.
+
 
 ## Contributing
 

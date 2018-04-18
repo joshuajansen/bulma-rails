@@ -8,7 +8,7 @@ A modern CSS framework based on Flexbox.
 
 Add this line to your application's Gemfile:
 
-    gem "bulma-rails", "~> 0.7.0"
+    gem "bulma-rails", "~> 0.7.1"
 
 And then execute:
 

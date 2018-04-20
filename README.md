@@ -18,7 +18,7 @@ And then execute:
 
 To import all assets in your Rails project, add the following line to your application.scss:
 ``` ruby
-@import "bulma";
+ *= require bulma
 ```
 
 For information about customizing Bulma,

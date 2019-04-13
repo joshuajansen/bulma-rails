@@ -12,6 +12,4 @@ Gem::Specification.new do |gem|
   gem.files         = `git ls-files`.split($\)
   gem.require_paths = ["lib"]
   gem.license       = 'MIT'
-
-  gem.add_runtime_dependency 'sass', '~> 3.5'
 end

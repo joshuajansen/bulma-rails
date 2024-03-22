@@ -8,7 +8,7 @@ A modern CSS framework based on Flexbox.
 
 Add this line to your application's Gemfile:
 
-    gem "bulma-rails", "~> 0.9.4"
+    gem "bulma-rails", "~> 1.0.0"
 
 And then execute:
 
@@ -18,7 +18,7 @@ And then execute:
 
 To import all assets in your Rails project, add the following line to your application.scss:
 ``` ruby
-@import "bulma";
+@use "bulma";
 ```
 
 For information about customizing Bulma,

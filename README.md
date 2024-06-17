@@ -51,13 +51,40 @@ For using mixins add the following line to your `application.scss`:
 
     @use "sass/utilities/mixins";
 
-For more information about Mixins see [Bulma Sass Mixins](https://bulma.io/documentation/start/modular/)
+For more information about Mixins see [Bulma Sass Mixins](https://bulma.io/documentation/sass/mixins/)
+
+## Customization
+
+To overwrite Bulma’s Sass variables with your own value, write `@use` and the `with` keyword for example to your `application.scss`:
+```
+// Set your brand colors
+$purple: #8a4d76;
+$pink: #fa7c91;
+$brown: #757763;
+$beige-light: #d0d1cd;
+$beige-lighter: #eff0eb;
+
+// Override global Sass variables from the /utilities folder
+@use "sass/utilities" with (
+  $family-primary: '"Nunito", sans-serif',
+  $grey-dark: $brown,
+  $grey-light: $beige-light,
+  $primary: $purple,
+  $link: $pink,
+  $control-border-width: 2px
+);
+
+// Load all styles
+@use "bulma";
+```
+
+This allows you to override Bulma’s global variables from the `utilities` folder.
+
+For more information about Customization see [Customize with Modular Sass](https://bulma.io/documentation/customize/with-modular-sass/)
 
 ## Helpful references
 
 Migrating to Bulma v1 and discover what changes, see [Migrating to Bulma v1](https://bulma.io/documentation/start/migrating-to-v1/)
-
-For information about customizing Bulma, see: [Bulma Customization Concepts](https://bulma.io/documentation/customize/concepts/)
 
 ## Contributing
 

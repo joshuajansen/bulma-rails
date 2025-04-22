@@ -53,6 +53,18 @@ For using mixins add the following line to your `application.scss`:
 
 For more information about Mixins see [Bulma Sass Mixins](https://bulma.io/documentation/sass/mixins/)
 
+## Prefix
+
+Prefix all generated classes with `bulma-`:
+```
+// application.scss
+// Load all styles with `bulma-` prefix
+
+@use "bulma_sass" with (
+  $class-prefix: "bulma-"
+);
+```
+
 ## Customization
 
 To overwrite Bulma’s Sass variables with your own value, write `@use` and the `with` keyword for example to your `application.scss`:

@@ -41,7 +41,7 @@ run `rails tmp:clear` and restarting the server.
 Modularity in Bulma helps to import only what you need.
 As an example, Layout features like Bulma's columns can be loaded directly without requiring any additional files. Simply load the `columns.scss` file with the `@use` keyword into your `application.scss`:
 
-    @use "sass/grid/columns";
+    @use "bulma_sass/grid/columns";
 
 For more information about Modularity see [Modularity in bulma](https://bulma.io/documentation/start/modular/)
 
@@ -49,7 +49,7 @@ For more information about Modularity see [Modularity in bulma](https://bulma.io
 
 For using mixins add the following line to your `application.scss`:
 
-    @use "sass/utilities/mixins";
+    @use "bulma_sass/utilities/mixins";
 
 For more information about Mixins see [Bulma Sass Mixins](https://bulma.io/documentation/sass/mixins/)
 
@@ -65,7 +65,7 @@ $beige-light: #d0d1cd;
 $beige-lighter: #eff0eb;
 
 // Override global Sass variables from the /utilities folder
-@use "sass/utilities" with (
+@use "bulma_sass/utilities" with (
   $family-primary: '"Nunito", sans-serif',
   $grey-dark: $brown,
   $grey-light: $beige-light,

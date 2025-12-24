@@ -8,7 +8,7 @@
   @each $size in dv.$sizes {
     $i: list.index(dv.$sizes, $size);
 
-    .#{iv.$class-prefix}#{iv.$helpers-prefix}size-#{$i}#{if($target == "", "", "-" + $target)} {
+    .#{iv.$class-prefix}#{iv.$helpers-prefix}size-#{$i}#{if(sass($target == ""): ""; else: "-" + $target)} {
       font-size: $size !important;
     }
   }
